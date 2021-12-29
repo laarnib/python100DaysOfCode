@@ -1,6 +1,7 @@
 import random
 import hangman_art
 import hangman_words
+#import hangman_words_kids
 
 guessed_letters = []    #Will be used to check if user previously used the letter as a guess
 stages_len = len(hangman_art.stages)
@@ -13,6 +14,7 @@ print(hangman_art.logo)
 if not hangman_words.word_list:
     print("No words in list. Exiting Game...")
 else:
+    #chosen_word = random.choice(hangman_words_kids.word_list_kids)
     chosen_word = random.choice(hangman_words.word_list)
     player_lives_left = stages_len - 1   
     #print(chosen_word)   #for testing only
@@ -26,11 +28,14 @@ else:
     #and that player still has lives left.
     while display.count("_") > 0 and player_lives_left > 0:
         guess = input("\nGuess a letter: ")
-
+        guess_length = len(guess)
         #Check if input is a letter. If it is, convert guess to lowercase
         #Else, let user that the input is not a letter and prompt user to guess again.
-        if str.isalpha(guess):
+        if str.isalpha(guess) and guess_length == 1:
             guess = guess.lower()
+        elif str.isalpha(guess) and guess_length > 1:
+            print(f"Your {guess} is more than one letter. Please try again.")
+            continue
         else:
             print(f"{guess} is not a letter. Please try again.")
             continue
@@ -77,6 +82,6 @@ else:
 
 
     if player_lives_left > 0:
-        print(f"\n\nYou guessed {' '.join(display)}. That is correct!\nCongratulations! You win!")
+        print(f"\n\nYou guessed {' '.join(display)}. That is correct!\n{hangman_art.balloon}Congratulations! You win!\n\n")
     else:
         print(f"\n\nI'm sorry you ran out of lives. Game over.\nThe word is {chosen_word}.")
