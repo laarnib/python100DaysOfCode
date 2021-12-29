@@ -15,7 +15,7 @@ if not hangman_words.word_list:
 else:
     chosen_word = random.choice(hangman_words.word_list)
     player_lives_left = stages_len - 1   
-    print(chosen_word)   #for testing only
+    #print(chosen_word)   #for testing only
     #Create an empty List called display.
     #For each letter in the chosen_word, add a "_" to 'display'.
     display = []
