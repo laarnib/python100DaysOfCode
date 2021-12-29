@@ -26,10 +26,10 @@ else:
     #TODO-1-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
     #TODO-2-2 - If the letter at that position matches 'guess' then reveal that letter in the display at that position.
     #e.g. If the user guessed "p" and the chosen word was "apple", then display should be ["_", "p", "p", "_", "_"].    
-    i = 0
+    index = 0
     for letter in chosen_word:
         if guess == letter:
-            display[i] = letter
+            display[index] = letter
         i += 1
     
     print(display)
