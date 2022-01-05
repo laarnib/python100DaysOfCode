@@ -18,6 +18,7 @@ else:
     chosen_word = random.choice(hangman_words.word_list)
     player_lives_left = stages_len - 1   
     #print(chosen_word)   #for testing only
+
     #Create an empty List called display.
     #For each letter in the chosen_word, add a "_" to 'display'.
     display = []
@@ -29,22 +30,25 @@ else:
     while display.count("_") > 0 and player_lives_left > 0:
         guess = input("\nGuess a letter: ")
         guess_length = len(guess)
+
         #Check if input is a letter. If it is, convert guess to lowercase
         #Else, let user that the input is not a letter and prompt user to guess again.
         if str.isalpha(guess) and guess_length == 1:
             guess = guess.lower()
         elif str.isalpha(guess) and guess_length > 1:
             print(f"Your {guess} is more than one letter. Please try again.")
+            print(display)
             continue
         else:
             print(f"{guess} is not a letter. Please try again.")
+            print(display)
             continue
-
 
         #Check if player previously used letter as a guess and if so, inform user and prompt user
         #to give another guess. Else, append the guess to guessed_letters list.
         if guessed_letters.count(guess) > 0:
             print(f"You already guessed the letter {guess}. Try again.")
+            print(display)
             continue
         else:
             guessed_letters.append(guess)
