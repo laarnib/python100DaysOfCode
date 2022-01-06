@@ -6,7 +6,7 @@ def encrypt(message, shift):
             if char.isupper():
                 # get the decimal equivalent of the letter
                 # subtract that by 65 then add the shift number.
-                # Get the remainder of the sum divided 26.
+                # Get the remainder of the sum divided by 26.
                 # Add 65 to the remainder and convert the decimal
                 # back to it's character equivalent
                 dec_equivalent = ord(char)
@@ -15,7 +15,7 @@ def encrypt(message, shift):
             else:
                 # get the decimal equivalent of the letter
                 # subtract that by 97 then add the shift number.
-                # Get the remainder of the sum divided 26.
+                # Get the remainder of the sum divided by 26.
                 # Add 97 to the remainder and convert the decimal
                 # back to it's character equivalent
                 dec_equivalent = ord(char)
