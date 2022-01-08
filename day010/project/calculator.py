@@ -52,6 +52,8 @@ def start_calculator():
         operation = get_operation()
         second_number = get_number("\tWhat is the next number? ")
         result = operations[operation](first_number, second_number)
+        if isinstance(result, float) and result % 1 == 0:
+            result = int(result)
         print(f"\t{first_number} {operation} {second_number} = {result}")
         user_response = input(f"\tType 'y' to continue calculating with {result}, type 'n' to start a new calculation, or type any key to exit calculator: ").lower()    
         if user_response == 'n':
